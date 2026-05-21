@@ -60,9 +60,9 @@ public class Ball : MonoBehaviour
        trail.Clear();
        trail.enabled = false;
        rig.linearVelocity= Vector2.zero;
-       transform.position = Vector2.zero;
+       transform.position = new Vector2(-0.01f, 0.25f);
        StartCoroutine(PlayBall());
-        trail.enabled = true;
+       trail.enabled = true;
     }
 
     IEnumerator PlayBall()
@@ -92,9 +92,7 @@ public class Ball : MonoBehaviour
     {
             audioSource.PlayOneShot(ballHit);
 
-            sprite.transform.DOKill();
-            sprite.transform.localScale = Vector3.one;
-            sprite.transform.DOScale(1.3f, 0.1f).SetLoops(2, LoopType.Yoyo);
+                       
         }
      void PlayExplode() // Play the explosion sound effect
     { 
